@@ -1340,7 +1340,7 @@ int snetf(defrCallbackType_e c, defiNet* net, defiUserData ud) {
          }
       }
       if (net->polyMask(i)) {
-    fprintf(fout, "\n  + MASK %d + POLYGON % s ", net->polyMask(i),
+    fprintf(fout, "\n  + MASK %d + POLYGON %s ", net->polyMask(i),
       net->polygonName(i));
       } else {
           fprintf(fout, "\n  + POLYGON %s ", net->polygonName(i));
@@ -2672,7 +2672,7 @@ int cls(defrCallbackType_e c, void* cl, defiUserData ud) {
                      td->fromPin(),
                      td->toPin());
          if (td->hasMacroThru())
-             fprintf(fout, "- MACRO %s THRUPIN %s %s ",
+             fprintf(fout, "- MACRO %s THRUPIN %s ",
                      td->macroName(),
                      td->fromPin());
          fprintf(fout, ";\n");
