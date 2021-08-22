@@ -22,18 +22,6 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 
 set(FLEXROUTE_HOME ${PROJECT_SOURCE_DIR} )
 
-set(DEFLIB_HOME
-  ${PROJECT_SOURCE_DIR}/module/def/5.8-p029
-)
-set(LEFLIB_HOME
-  ${PROJECT_SOURCE_DIR}/module/lef/5.8-p029
-)
-
-## include subdirectories
-add_subdirectory(${DEFLIB_HOME})
-add_subdirectory(${LEFLIB_HOME})
-
-
 ## configure settings
 find_package(ZLIB REQUIRED)
 find_package(BISON REQUIRED)
@@ -188,6 +176,8 @@ set (FLEXROUTE_HEADER
   ${FLEXROUTE_HOME}/src/rp/FlexRP.h
   )
 
+include_directories( $ENV{ACT_HOME}/include )
+
 ############################################################
 # Create a library
 ############################################################
@@ -221,6 +211,9 @@ add_executable( TritonRoute
   ${FLEXROUTE_HOME}/src/main.cpp
 )
 
+
+target_link_directories ( TritonRoute PUBLIC $ENV{ACT_HOME}/lib )
+
 target_link_libraries( TritonRoute
   PUBLIC
   flexroutelib
@@ -230,7 +223,7 @@ target_link_libraries( TritonRoute
 # Install
 ############################################################
 
-install(FILES ${FLEXROUTE_HEADER} DESTINATION include)
+#install(FILES ${FLEXROUTE_HEADER} DESTINATION include)
 install(TARGETS TritonRoute DESTINATION bin)
-install(TARGETS TritonRoute DESTINATION lib)
+#install(TARGETS TritonRoute DESTINATION lib)
 
