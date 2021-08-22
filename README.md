@@ -14,7 +14,16 @@ support of [ISPD-2018](http://www.ispd.cc/contests/18/) and
 format. In addition, it provides a global-detailed routing interface
 that is compatibale with existing contest-based interface.
 
+## This version ##
+
+This version of TritonRoute makes minor modifications to work with
+the ACT tools for asynchronous design. Apart from minor fixes to warnings,
+the main differences are (i) changed the default options used by the
+detailed router, and (ii) the LEF/DEF libraries are assumed to be installed
+in ACT_HOME, so they have been removed from the build process.
+
 ## Installation ##
+
 TritonRoute-WXL is tested in 64-bit CentOS 6/7 environments with the following
 prerequisites:
 * A compatible C++ compiler supporting C++17 (GCC 7 and above)
@@ -23,15 +32,19 @@ prerequisites:
 * Bison >= 3.0.4
 * zlib >= 1.2.7
 * CMake >= 3.1
+* LEF/DEF libraries from Si2 installed in $ACT_HOME
 
-To install TritonRoute-WXL:
+To install this version of TritonRoute-WXL, make sure that the environment variable ACT_HOME
+is set to the install directory for the ACT tools. Also, make sure that the LEF/DEF libraries
+are also installed there. After this:
 ```
-$ git clone https://github.com/ABKGroup/TritonRoute-WXL.git
+$ git clone https://github.com/asyncvlsi/TritonRoute-WXL.git
 $ cd TritonRoute 
 $ mkdir build
 $ cd build
-$ cmake ../
+$ cmake -DCMAKE_INSTALL_PREFIX=$ACT_HOME ../
 $ make
+$ make install
 ```
    
 To run TritonRoute-WXL for detailed routing: 
@@ -43,8 +56,6 @@ To run TritonRoute-WXL for global-detailed routing:
 ```
 $ ./TritonRoute -lef <LEF_FILE> -def <DEF_FILE> -output <OUTPUT_DEF>
 ```
-Note that you will need to have POST9.dat and POWV9.dat (under /src/gr/flute/) 
-present in your run directory for global-detailed routing.
 
 ## Supported Technologies ##
 * ISPD-2018 and ISPD-2019 Initial Detailed Routing Contests 
