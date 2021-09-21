@@ -327,13 +327,13 @@ void io::Parser::genGuides_gCell2TermMap(map<pair<frPoint, frLayerNum>, set<frBl
         //frCoord x1 = (box.lowerLeft().x() - 1  - GCELLOFFSETX) / GCELLGRIDX;
         //frCoord y1 = (box.lowerLeft().y() - 1  - GCELLOFFSETY) / GCELLGRIDY;
         frPoint idx;
-        frPoint pt(box.left() - 1, box.bottom() - 1);
+        frPoint pt(box.left() + 1, box.bottom() + 1);
         design->getTopBlock()->getGCellIdx(pt, idx);
         frCoord x1 = idx.x();
         frCoord y1 = idx.y();
         //frCoord x2 = (box.upperRight().x()     - GCELLOFFSETX) / GCELLGRIDX;
         //frCoord y2 = (box.upperRight().y()     - GCELLOFFSETY) / GCELLGRIDY;
-        pt.set(box.upperRight());
+        pt.set(box.upperRight().x() - 1, box.upperRight().y() - 1);
         design->getTopBlock()->getGCellIdx(pt, idx);
         frCoord x2 = idx.x();
         frCoord y2 = idx.y();
