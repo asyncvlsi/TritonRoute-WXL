@@ -34,9 +34,9 @@
 #ifndef WIN32
 #   include <unistd.h>
 #endif /* not WIN32 */
-#include "def/defrReader.hpp"
-#include "def/defwWriterCalls.hpp"
-#include "def/defiAlias.hpp"
+#include "defrReader.hpp"
+#include "defwWriterCalls.hpp"
+#include "defiAlias.hpp"
 #include "io/io.h"
 #include "global.h"
 #include "frBaseTypes.h"

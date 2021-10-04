@@ -34,9 +34,9 @@
 #include <boost/icl/interval_set.hpp>
 #include "frDesign.h"
 
-#include "def/defrReader.hpp"
-#include "def/defwWriter.hpp"
-#include "lef/lefrReader.hpp"
+#include "defrReader.hpp"
+#include "defwWriter.hpp"
+#include "lefrReader.hpp"
 
 namespace fr {
   namespace io {
