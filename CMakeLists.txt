@@ -211,12 +211,18 @@ add_executable( TritonRoute
   ${FLEXROUTE_HOME}/src/main.cpp
 )
 
+if(DEFINED NEED_LIBCXXFS)
+    set(LIBCXXFS_LIB "stdc++fs")
+else()
+    set(LIBCXXFX_LIB "")
+endif()
 
 target_link_directories ( TritonRoute PUBLIC $ENV{ACT_HOME}/lib )
 
 target_link_libraries( TritonRoute
   PUBLIC
   flexroutelib
+  ${LIBCXXFS_LIB}
   )
 
 ############################################################
