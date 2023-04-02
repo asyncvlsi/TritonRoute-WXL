@@ -30,6 +30,13 @@ find_package(Boost 1.68.0 REQUIRED)
 find_package(OpenMP REQUIRED)
 find_package(Threads REQUIRED)
 
+#   
+# This is needed because Boost doesn't auto-detect the C++17 deprecation of
+# std::unary_function and std::binary_function
+#
+add_compile_options("-D_HAS_AUTO_PTR_ETC=0")
+
+
 set (FLEXROUTE_SRC
   ${FLEXROUTE_HOME}/src/gr/FlexGRCMap.cpp
   ${FLEXROUTE_HOME}/src/gr/FlexGR.cpp
