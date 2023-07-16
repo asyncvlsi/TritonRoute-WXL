@@ -172,7 +172,7 @@ int compf(defrCallbackType_e c, defiComponent* co, defiUserData ud) {
                     //orientStr(co->placementOrient()));
                     co->placementOrientStr());
         if (co->isCover()) 
-            fprintf(fout, "+ COVER %d %d %s ",
+            fprintf(fout, "+ COVER ( %d %d ) %s ",
                     co->placementX(),
                     co->placementY(),
                     orientStr(co->placementOrient()));
